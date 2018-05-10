@@ -1,0 +1,35 @@
+Design Notes
+------------
+
+Just some comment on the choice of base image. I basically just want a
+small base image for this...
+
+For really good casync support and newest version it would seem that a
+RedHat distro would be the logical choice (and I often use Fedora on a
+day-to-day basis).  I'd be happy to switch if I could get a really minimal
+image.
+
+But for now, it's using Ubuntu since it's much smaller compared to the
+standard Fedora I tried. Some other base distros I tried didn't have casync
+available, or at least not easy to find.
+
+Now for my personal use I often have Fedora, Ubuntu and Debian layers
+downloaded anyway, so the incremental size might not matter a great deal, 
+but for wide usage an "application" style container should be as small
+as possible, for example based on alpinelinux.
+(Is casync available on alpinelinux?  Input and PRs welcome.)
+
+Some stats:
+These were just the standard base containers from Docker hub.
+
+Results of
+# du -hs /
+
+fedora:27
+Before casync install: 251M
+After casync install:  463M
+
+ubuntu:18.04
+Before casync install: 73M
+After casync install:  128M
+
